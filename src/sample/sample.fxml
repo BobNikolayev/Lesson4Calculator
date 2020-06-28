@@ -5,7 +5,8 @@
 
 <VBox alignment="center" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <TextArea fx:id="textArea" prefHeight="200.0" prefWidth="200.0" />
+      <TextArea fx:id="textArea2" prefHeight="50.0" prefWidth="200.0" />
+      <TextArea fx:id="textArea" prefHeight="50.0" prefWidth="200.0" />
       <GridPane>
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="30.0" />

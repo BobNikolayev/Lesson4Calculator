@@ -2,18 +2,25 @@ package sample;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.IndexedCell;
+
 import javafx.scene.control.TextArea;
-import sun.swing.SwingAccessor;
+
 
 import javax.swing.*;
 
 public class Controller {
     @FXML
     public TextArea textArea;
+    @FXML
+    public TextArea textArea2;
+    String action = " ";
+    int firstNum = 0;
+    int secondNum = 0;
+
 
     public void btnClick2(ActionEvent actionEvent) {
     textArea.appendText("2");
+
     }
 
     public void btnClick1(ActionEvent actionEvent) {
@@ -59,27 +66,69 @@ public class Controller {
     }
 
     public void btnClickPlus(ActionEvent actionEvent) {
-        textArea.appendText("+");
+        textArea2.clear();
+        firstNum = Integer.parseInt(textArea.getText());
+        textArea2.appendText(textArea.getText());
+        textArea.clear();
+        textArea2.appendText("+");
+        action = "+";
+
     }
 
     public void btnClickMinus(ActionEvent actionEvent) {
-        textArea.appendText("-");
+        textArea2.clear();
+        firstNum = Integer.parseInt(textArea.getText());
+        textArea2.appendText(textArea.getText());
+        textArea.clear();
+        textArea2.appendText("-");
+        action = "-";
     }
 
     public void btnClickX(ActionEvent actionEvent) {
-        textArea.appendText("*");
+        textArea2.clear();
+        firstNum = Integer.parseInt(textArea.getText());
+        textArea2.appendText(textArea.getText());
+        textArea.clear();
+        textArea2.appendText("*");
+        action = "*";
     }
 
     public void btnClickDiv(ActionEvent actionEvent) {
-        textArea.appendText("/");
+        textArea2.clear();
+        firstNum = Integer.parseInt(textArea.getText());
+        textArea2.appendText(textArea.getText());
+        textArea.clear();
+        textArea2.appendText("/");
+        action = "/";
+
     }
     public void btnClickEqual(ActionEvent actionEvent) {
-        int resultString = Integer.parseInt(textArea.getText());
+        secondNum = Integer.parseInt(textArea.getText());
+        if(action == "+"){
+            int res = firstNum + secondNum;
+            textArea2.setText(Integer.toString(res));
+            textArea.clear();
+        }else if(action == "-"){
+            int res = firstNum - secondNum;
+            textArea2.setText(Integer.toString(res));
+            textArea.clear();
+        }else if(action == "*"){
+            int res = firstNum * secondNum;
+            textArea2.setText(Integer.toString(res));
+            textArea.clear();
+        }else if(action == "/"){
+           if(secondNum == 0){textArea2.setText("Impossible operation");}
+            try{
+                int res = firstNum / secondNum;
+                textArea2.setText(Integer.toString(res));
+            }catch (ArithmeticException a){
+                textArea.clear();
+            }
+            textArea.clear();
 
-    }
 
-    public int resultEqual(int result){
-        result
+        }
+
     }
 
 }
