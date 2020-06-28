@@ -117,9 +117,16 @@ public class Controller {
             textArea2.setText(Integer.toString(res));
             textArea.clear();
         }else if(action == "/"){
-            int res = firstNum / secondNum;
-            textArea2.setText(Integer.toString(res));
+           if(secondNum == 0){textArea2.setText("Impossible operation");}
+            try{
+                int res = firstNum / secondNum;
+                textArea2.setText(Integer.toString(res));
+            }catch (ArithmeticException a){
+                textArea.clear();
+            }
             textArea.clear();
+
+
         }
 
     }
